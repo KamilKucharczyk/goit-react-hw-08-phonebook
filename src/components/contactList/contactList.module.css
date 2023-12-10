@@ -1,0 +1,20 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delButton {
+  cursor: pointer;
+  border-radius: 5px;
+  width: 6vw;
+  background-color: #ecd035;
+  opacity: 80%;
+  color: #444;
+  border-color: #444;
+}
+
+.delButton:focus,
+.delButton:hover {
+  opacity: 100%;
+}

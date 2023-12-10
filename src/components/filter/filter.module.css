@@ -1,0 +1,23 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin-left: 5px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 3% 10%;
+  color: white;
+  border-radius: 7px;
+  background-color: #1204aa;
+  font-weight: 600;
+  cursor: pointer;
+}
