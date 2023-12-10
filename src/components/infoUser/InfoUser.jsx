@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutThunk } from 'redux/User/userThunk';
+import { logoutThunk } from 'redux/user/userThunk';
 import { selectUser } from 'redux/constants';
 
 import css from './infoUser.module.css';

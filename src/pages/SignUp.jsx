@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signUpThunk } from 'redux/User/userThunk';
+import { signUpThunk } from 'redux/user/userThunk';
 
 export const SignUp = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,6 @@
 const { useState } = require('react');
 const { useDispatch } = require('react-redux');
-const { loginThunk } = require('redux/User/userThunk');
-// import { loginThunk } from 'redux/user/userThunk';
+const { loginThunk } = require('redux/user/userThunk');
 
 const Login = () => {
   const dispatch = useDispatch();
