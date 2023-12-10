@@ -18,7 +18,7 @@ const Contacts = ({ listContact }) => {
         <li className={css.contact} key={contact.id}>
           {contact.name} - {contact.phone}
           <button
-            className={s.btn}
+            className={css.btn}
             onClick={() => {
               dispatch(delContactsThunk(contact.id));
             }}
