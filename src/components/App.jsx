@@ -1,30 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import Contacts from './contactList/ContactList';
-import ContactForm from './contactForm/ContactForm';
-import Filter from './filter/Filter';
-
-import style from './app.module.css';
+import Contacts from './contacts/Contacts';
+import { PublicRoute } from './public/PublicRoute';
+import Login from 'pages/Login';
+import { SignUp } from 'pages/SignUp';
+import { Navigation } from './navigation/Navigation';
+import { PrivateRoute } from './private/PrivateRoute';
+import { refreshUserThunk } from 'redux/User/userThunk';
 
 const App = () => {
-  const filtered = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts.items);
-
-  const filterContact = e => {
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filtered.toLowerCase())
-    );
-    return filteredContacts;
-  };
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
   return (
-    <div className={style.form}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-
-      <Filter></Filter>
-      <Contacts listContact={filterContact()} />
-    </div>
+    <>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<PublicRoute />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route path="/" element={<PrivateRoute />}>
+          <Route path="/contacts" element={<Contacts />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

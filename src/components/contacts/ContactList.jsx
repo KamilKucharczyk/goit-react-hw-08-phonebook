@@ -1,18 +1,24 @@
 import { useDispatch } from 'react-redux';
-import { delContactsThunk } from '../../redux/constants';
-import React from 'react';
 import PropTypes from 'prop-types';
-import css from './contactList.module.css';
+import React from 'react';
+import { delContactsThunk } from 'redux/constants';
 
-const ContactList = ({ listContact }) => {
+import css from './contacts.module.css';
+
+const Contacts = ({ listContact }) => {
   const dispatch = useDispatch();
+
+  if (!listContact || !Array.isArray(listContact) || listContact.length === 0) {
+    return <p>No contacts found</p>;
+  }
+
   return listContact.map(contact => {
     return (
-      <ul className={css.list} key={contact.id}>
+      <ul className={css.list}>
         <li className={css.contact} key={contact.id}>
           {contact.name} - {contact.phone}
           <button
-            className={css.btn}
+            className={s.btn}
             onClick={() => {
               dispatch(delContactsThunk(contact.id));
             }}
@@ -25,8 +31,8 @@ const ContactList = ({ listContact }) => {
   });
 };
 
-export default ContactList;
+export default Contacts;
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object),
+Contacts.propTypes = {
+  listContact: PropTypes.array,
 };
