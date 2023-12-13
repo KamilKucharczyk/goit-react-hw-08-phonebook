@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { delContactsThunk } from 'redux/constants';
+import { delContactsThunk } from '../../redux/constants';
 
 import css from './contacts.module.css';
 
