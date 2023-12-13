@@ -8,7 +8,7 @@ import Login from 'pages/Login';
 import { SignUp } from 'pages/SignUp';
 import { Navigation } from './navigation/Navigation';
 import { PrivateRoute } from './private/PrivateRoute';
-import { refreshUserThunk } from 'redux/user/userThunk';
+import { refreshUserThunk } from '../redux/user/userThunk';
 
 const App = () => {
   const dispatch = useDispatch();
